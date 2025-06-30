@@ -32,9 +32,7 @@ c:\Users\franc\Downloads\questify_v0\questify\obj\Debug\net9.0\questify.RazorAss
 c:\Users\franc\Downloads\questify_v0\questify\obj\Debug\net9.0\rjimswa.dswa.cache.json
 c:\Users\franc\Downloads\questify_v0\questify\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
 c:\Users\franc\Downloads\questify_v0\questify\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
-c:\Users\franc\Downloads\questify_v0\questify\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 c:\Users\franc\Downloads\questify_v0\questify\obj\Debug\net9.0\scopedcss\bundle\questify.styles.css
-c:\Users\franc\Downloads\questify_v0\questify\obj\Debug\net9.0\scopedcss\projectbundle\questify.bundle.scp.css
 c:\Users\franc\Downloads\questify_v0\questify\obj\Debug\net9.0\compressed\roin6xpb1u-b9sayid5wm.gz
 c:\Users\franc\Downloads\questify_v0\questify\obj\Debug\net9.0\compressed\onjr26f53p-61n19gt1b8.gz
 c:\Users\franc\Downloads\questify_v0\questify\obj\Debug\net9.0\compressed\lza56lt7hl-xtxxf3hu2r.gz
@@ -97,8 +95,6 @@ c:\Users\franc\Downloads\questify_v0\questify\obj\Debug\net9.0\compressed\vb8cyj
 c:\Users\franc\Downloads\questify_v0\questify\obj\Debug\net9.0\compressed\9kci2h1tqk-muycvpuwrr.gz
 c:\Users\franc\Downloads\questify_v0\questify\obj\Debug\net9.0\compressed\yhxrxl4mwr-87fc7y1x7t.gz
 c:\Users\franc\Downloads\questify_v0\questify\obj\Debug\net9.0\compressed\oktik9x5w5-mlv21k5csn.gz
-c:\Users\franc\Downloads\questify_v0\questify\obj\Debug\net9.0\compressed\xj70um3e3v-naq2gbcqhj.gz
-c:\Users\franc\Downloads\questify_v0\questify\obj\Debug\net9.0\compressed\v90tpbim27-naq2gbcqhj.gz
 c:\Users\franc\Downloads\questify_v0\questify\obj\Debug\net9.0\staticwebassets.build.json
 c:\Users\franc\Downloads\questify_v0\questify\obj\Debug\net9.0\staticwebassets.build.json.cache
 c:\Users\franc\Downloads\questify_v0\questify\obj\Debug\net9.0\staticwebassets.development.json
@@ -109,3 +105,7 @@ c:\Users\franc\Downloads\questify_v0\questify\obj\Debug\net9.0\refint\questify.d
 c:\Users\franc\Downloads\questify_v0\questify\obj\Debug\net9.0\questify.pdb
 c:\Users\franc\Downloads\questify_v0\questify\obj\Debug\net9.0\questify.genruntimeconfig.cache
 c:\Users\franc\Downloads\questify_v0\questify\obj\Debug\net9.0\ref\questify.dll
+c:\Users\franc\Downloads\questify_v0\questify\obj\Debug\net9.0\questify.sourcelink.json
+c:\Users\franc\Downloads\questify_v0\questify\obj\Debug\net9.0\compressed\qu18ewubln-fjpdklfvvt.gz
+c:\Users\franc\Downloads\questify_v0\questify\obj\Debug\net9.0\compressed\fwaeidol82-90x6shuc39.gz
+c:\Users\franc\Downloads\questify_v0\questify\obj\Debug\net9.0\compressed\2ty5hrw68o-iwwjcsoytg.gz

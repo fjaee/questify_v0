@@ -1,0 +1,556 @@
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="dashboard-container">
+        <div class="dashboard-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- User Profile -->
+            <div class="user-profile">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="user-info">
+                    <span class="username"></span>
+                    <div class="level-bar">
+                        <div class="level-progress"></div>
+                    </div>
+                    <span class="level">LVL 1</span>
+                </div>
+                <div class="user-actions">
+                    <iconify-icon icon="material-symbols:notifications-rounded"></iconify-icon>
+                    <iconify-icon icon="mdi:cog-outline"></iconify-icon>
+                    <iconify-icon icon="mdi:logout" onclick="logout()"></iconify-icon>
+                </div>
+            </div>
+
+            <div class="nav-item active" onclick="showSection('begin-quest')">
+                <iconify-icon icon="twemoji:crossed-swords" ></iconify-icon>
+                <span>Begin new quest</span>
+                <i class="fas fa-plus-circle add-icon"></i>
+            </div>
+
+            <!-- Search - converted to nav-item for alignment -->
+            <div class="nav-item" onclick="openPopup()">
+                <iconify-icon icon="mdi:magnify"></iconify-icon>
+                <span>Search</span>
+            </div>
+            <!-- Popup -->
+            <div class="popup-overlay" id="popupOverlay">
+                <div class="popup">
+                    <button class="close-btn" onclick="closePopup()">&times;</button>
+                    <h2>What are you looking for?</h2>
+                    <input
+                    type="text"
+                    class="search-input"
+                    placeholder="Search for a task"
+                    />
+
+                    <ul>
+                    <li><iconify-icon icon="twemoji:clipboard" width="24" height="24"></iconify-icon> Go to Inbox</li>
+                    <li><iconify-icon icon="mdi:calendar-today" width="24" height="24"></iconify-icon> Go to Today</li>
+                    <li><iconify-icon icon="mdi:check-circle-outline" width="24" height="24"></iconify-icon> Go to My Quests</li>
+                    <li><iconify-icon icon="mdi:account-group-outline" width="24" height="24"></iconify-icon> Go to My Guilds</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Script -->
+            <script>
+                function openPopup() {
+                document.getElementById('popupOverlay').style.display = 'flex';
+                }
+
+                function closePopup() {
+                document.getElementById('popupOverlay').style.display = 'none';
+                }
+            </script>
+
+            <!-- Other nav items -->
+            <div class="nav-item" onclick="showSection('inbox')">
+                <i class="fas fa-inbox"></i>
+                <span>Inbox</span>
+                <span class="badge">24</span>
+            </div>
+            <div class="nav-item" onclick="showSection('today')">
+                <i class="fas fa-calendar-day"></i>
+                <span>Today</span>
+                <span class="badge">2</span>
+            </div>
+            </nav>
+
+                <div class="nav-section">
+                    <h6>My Quests</h6>
+                    <div class="nav-item" onclick="showSection('main-quests')">
+                        <i class="fas fa-star main-quest-icon"></i>
+                        <span>Main quests</span>
+                        <span class="badge">4</span>
+                    </div>
+                    <div class="nav-item" onclick="showSection('side-quests')">
+                        <i class="fas fa-star side-quest-icon"></i>
+                        <span>Side quests</span>
+                        <span class="badge">8</span>
+                    </div>
+                    <div class="nav-item" onclick="showSection('mini-quests')">
+                        <i class="fas fa-star mini-quest-icon"></i>
+                        <span>Mini quests</span>
+                        <span class="badge">3</span>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <h6>My Guilds</h6>
+                    <div class="nav-item" onclick="showSection('join-guild')">
+                        <i class="fas fa-users"></i>
+                        <span>Join/create a new guild</span>
+                        <i class="fas fa-plus-circle add-icon"></i>
+                    </div>
+                    <div class="nav-item guild-item">
+                        <i class="fas fa-shield-alt faerie-court"></i>
+                        <span>Faerie Court</span>
+                        <div class="guild-status active"></div>
+                    </div>
+                    <div class="nav-item guild-item">
+                        <i class="fas fa-shield-alt chrysos-heirs"></i>
+                        <span>Chrysos Heirs</span>
+                        <div class="guild-status active"></div>
+                    </div>
+                    <div class="nav-item guild-item">
+                        <i class="fas fa-shield-alt hexenzirkel"></i>
+                        <span>Hexenzirkel</span>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Bottom Profile -->
+            <div class="bottom-profile">
+                <div class="profile-avatar">
+                    <div class="sword-icon"></div>
+                </div>
+                <div class="profile-info">
+                    <h6>Hi, Nem</h6>
+                    <p>Every day is an adventure. Make the most out of it.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Background Elements -->
+            <div class="content-bg">
+                <div class="cloud cloud-1"></div>
+                <div class="cloud cloud-2"></div>
+                <div class="cloud cloud-3"></div>
+                <div class="sun"></div>
+                <div class="bird bird-1"></div>
+                <div class="bird bird-2"></div>
+                <div class="tree tree-1"></div>
+                <div class="tree tree-2"></div>
+                <div class="flower flower-1"></div>
+                <div class="flower flower-2"></div>
+                <div class="fox"></div>
+            </div>
+
+            <!-- Content Sections -->
+            <div id="begin-quest-section" class="content-section active">
+                <div class="section-header">
+                    <h2>Adding New Quests</h2>
+                </div>
+                <div class="quest-forms">
+                    <div class="quest-form-card">
+                        <input type="text" placeholder="Quest name" class="quest-title-input">
+                        <textarea placeholder="Description" class="quest-description"></textarea>
+                        <div class="quest-options">
+                            <button class="btn btn-option"><i class="fas fa-calendar"></i> Date</button>
+                            <button class="btn btn-option"><i class="fas fa-flag"></i> Priority</button>
+                        </div>
+                        <div class="quest-actions">
+                            <select class="form-select">
+                                <option>Inbox</option>
+                                <option>Today</option>
+                                <option>Main quests</option>
+                                <option>Side quests</option>
+                                <option>Mini quests</option>
+                            </select>
+                            <button class="btn btn-cancel">Cancel</button>
+                            <button class="btn btn-begin-quest">Begin quest <i class="fas fa-times"></i></button>
+                        </div>
+                    </div>
+                    <div class="quest-form-card">
+                        <input type="text" placeholder="Quest name" class="quest-title-input">
+                        <textarea placeholder="Description" class="quest-description"></textarea>
+                        <div class="quest-options">
+                            <button class="btn btn-option"><i class="fas fa-calendar"></i> Date</button>
+                            <button class="btn btn-option"><i class="fas fa-flag"></i> Priority</button>
+                        </div>
+                        <div class="quest-actions">
+                            <select class="form-select">
+                                <option>Inbox</option>
+                            </select>
+                            <button class="btn btn-cancel">Cancel</button>
+                            <button class="btn btn-begin-quest">Begin quest <i class="fas fa-times"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-add-quest" onclick="addQuestForm()">
+                    <i class="fas fa-plus"></i> Add a quest
+                </button>
+            </div>
+
+            <div id="inbox-section" class="content-section">
+                <div class="section-header">
+                    <h2>Inbox</h2>
+                </div>
+                <div class="empty-state">
+                    <div class="empty-illustration">
+                        <div class="character-celebration"></div>
+                    </div>
+                    <h3>You don't have any quests here!</h3>
+                    <p>Inbox is your go-to for urgent quests.<br>Stay on top of all your adventures in<br>one place.</p>
+                </div>
+            </div>
+
+            <div id="today-section" class="content-section">
+                <div class="section-header">
+                    <h2>Today</h2>
+                </div>
+                <div class="quest-list">
+                    <div class="quest-card">
+                        <div class="quest-checkbox">
+                            <input type="checkbox" id="quest1">
+                            <label for="quest1"></label>
+                        </div>
+                        <div class="quest-content">
+                            <h4>Post Schedule on Team Dashboard</h4>
+                            <p>Add updated weekly goals and tasks to the workspace.</p>
+                            <div class="quest-meta">
+                                <span class="quest-date"><i class="fas fa-calendar"></i> June 25</span>
+                                <span class="quest-type side-quest"><i class="fas fa-star"></i> Side quest</span>
+                                <span class="quest-guild"><i class="fas fa-shield-alt"></i> Guild</span>
+                            </div>
+                        </div>
+                        <div class="quest-xp">50 XP</div>
+                        <button class="quest-expand"><i class="fas fa-chevron-up"></i></button>
+                    </div>
+                    <div class="quest-card">
+                        <div class="quest-checkbox">
+                            <input type="checkbox" id="quest2">
+                            <label for="quest2"></label>
+                        </div>
+                        <div class="quest-content">
+                            <h4>Print Attendance Sheet</h4>
+                            <div class="quest-meta">
+                                <span class="quest-date">June 25</span>
+                            </div>
+                        </div>
+                        <div class="quest-xp">15 XP</div>
+                        <button class="quest-expand"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <div class="quest-card">
+                        <div class="quest-checkbox">
+                            <input type="checkbox" id="quest3">
+                            <label for="quest3"></label>
+                        </div>
+                        <div class="quest-content">
+                            <h4>Clear Desktop Icons</h4>
+                            <div class="quest-meta">
+                                <span class="quest-date">June 25</span>
+                            </div>
+                        </div>
+                        <div class="quest-xp">15 XP</div>
+                        <button class="quest-expand"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="main-quests-section" class="content-section">
+                <div class="section-header">
+                    <h2>My Quests</h2>
+                </div>
+                <div class="quest-category-header">
+                    <h3>Main quests</h3>
+                </div>
+                <div class="quest-list">
+                    <div class="quest-card">
+                        <div class="quest-checkbox">
+                            <input type="checkbox" id="main1">
+                            <label for="main1"></label>
+                        </div>
+                        <div class="quest-content">
+                            <h4>Write Talk Script for Webinar</h4>
+                            <div class="quest-meta">
+                                <span class="quest-date">June 27</span>
+                            </div>
+                        </div>
+                        <div class="quest-xp">100 XP</div>
+                        <button class="quest-expand"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <div class="quest-card">
+                        <div class="quest-checkbox">
+                            <input type="checkbox" id="main2">
+                            <label for="main2"></label>
+                        </div>
+                        <div class="quest-content">
+                            <h4>Finalize Capstone Proposal</h4>
+                            <div class="quest-meta">
+                                <span class="quest-date">June 28</span>
+                            </div>
+                        </div>
+                        <div class="quest-xp">100 XP</div>
+                        <button class="quest-expand"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <div class="quest-card">
+                        <div class="quest-checkbox">
+                            <input type="checkbox" id="main3">
+                            <label for="main3"></label>
+                        </div>
+                        <div class="quest-content">
+                            <h4>Deploy Beta Version of Questify</h4>
+                            <div class="quest-meta">
+                                <span class="quest-date">June 29</span>
+                            </div>
+                        </div>
+                        <div class="quest-xp">100 XP</div>
+                        <button class="quest-expand"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <div class="quest-card">
+                        <div class="quest-checkbox">
+                            <input type="checkbox" id="main4">
+                            <label for="main4"></label>
+                        </div>
+                        <div class="quest-content">
+                            <h4>Event Teaser Video</h4>
+                            <div class="quest-meta">
+                                <span class="quest-date">June 30</span>
+                            </div>
+                        </div>
+                        <div class="quest-xp">100 XP</div>
+                        <button class="quest-expand"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="side-quests-section" class="content-section">
+                <div class="section-header">
+                    <h2>My Quests</h2>
+                </div>
+                <div class="quest-category-header">
+                    <h3>Side quests</h3>
+                </div>
+                <div class="quest-list">
+                    <div class="quest-card">
+                        <div class="quest-checkbox">
+                            <input type="checkbox" id="side1">
+                            <label for="side1"></label>
+                        </div>
+                        <div class="quest-content">
+                            <h4>Post Schedule on Team Dashboard</h4>
+                            <div class="quest-meta">
+                                <span class="quest-date">June 25</span>
+                            </div>
+                        </div>
+                        <div class="quest-xp">50 XP</div>
+                        <button class="quest-expand"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <div class="quest-card">
+                        <div class="quest-checkbox">
+                            <input type="checkbox" id="side2">
+                            <label for="side2"></label>
+                        </div>
+                        <div class="quest-content">
+                            <h4>Create Social Media Countdown</h4>
+                            <div class="quest-meta">
+                                <span class="quest-date">June 26</span>
+                            </div>
+                        </div>
+                        <div class="quest-xp">50 XP</div>
+                        <button class="quest-expand"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <div class="quest-card">
+                        <div class="quest-checkbox">
+                            <input type="checkbox" id="side3">
+                            <label for="side3"></label>
+                        </div>
+                        <div class="quest-content">
+                            <h4>Coordinate Food Orders for Team Meeting</h4>
+                            <div class="quest-meta">
+                                <span class="quest-date">June 26</span>
+                            </div>
+                        </div>
+                        <div class="quest-xp">50 XP</div>
+                        <button class="quest-expand"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <div class="quest-card">
+                        <div class="quest-checkbox">
+                            <input type="checkbox" id="side4">
+                            <label for="side4"></label>
+                        </div>
+                        <div class="quest-content">
+                            <h4>Update Slide Deck for Client Pitch</h4>
+                            <div class="quest-meta">
+                                <span class="quest-date">June 28</span>
+                            </div>
+                        </div>
+                        <div class="quest-xp">50 XP</div>
+                        <button class="quest-expand"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="mini-quests-section" class="content-section">
+                <div class="section-header">
+                    <h2>My Quests</h2>
+                </div>
+                <div class="quest-category-header">
+                    <h3>Mini quests</h3>
+                </div>
+                <div class="quest-list">
+                    <div class="quest-card">
+                        <div class="quest-checkbox">
+                            <input type="checkbox" id="mini1">
+                            <label for="mini1"></label>
+                        </div>
+                        <div class="quest-content">
+                            <h4>Print Attendance Sheet</h4>
+                            <div class="quest-meta">
+                                <span class="quest-date">June 25</span>
+                            </div>
+                        </div>
+                        <div class="quest-xp">15 XP</div>
+                        <button class="quest-expand"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <div class="quest-card">
+                        <div class="quest-checkbox">
+                            <input type="checkbox" id="mini2">
+                            <label for="mini2"></label>
+                        </div>
+                        <div class="quest-content">
+                            <h4>Clear Desktop Icons</h4>
+                            <div class="quest-meta">
+                                <span class="quest-date">June 26</span>
+                            </div>
+                        </div>
+                        <div class="quest-xp">15 XP</div>
+                        <button class="quest-expand"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <div class="quest-card">
+                        <div class="quest-checkbox">
+                            <input type="checkbox" id="mini3">
+                            <label for="mini3"></label>
+                        </div>
+                        <div class="quest-content">
+                            <h4>Charge Camera Batteries</h4>
+                            <div class="quest-meta">
+                                <span class="quest-date">June 26</span>
+                            </div>
+                        </div>
+                        <div class="quest-xp">15 XP</div>
+                        <button class="quest-expand"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="faerie-court-section" class="content-section">
+                <div class="guild-header">
+                    <div class="guild-info">
+                        <i class="fas fa-shield-alt faerie-court"></i>
+                        <h2>Faerie Court</h2>
+                        <div class="guild-level">
+                            <div class="level-bar">
+                                <div class="level-progress"></div>
+                            </div>
+                            <span>LVL 1</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-post-guild">
+                        <i class="fas fa-plus"></i> Post a guild quest
+                    </button>
+                </div>
+                <div class="guild-quests">
+                    <div class="guild-quest-card">
+                        <div class="quest-author">
+                            <i class="fas fa-user-circle"></i>
+                            <span>Katarina</span>
+                        </div>
+                        <div class="quest-checkbox">
+                            <input type="checkbox" id="guild1">
+                            <label for="guild1"></label>
+                        </div>
+                        <div class="quest-content">
+                            <h4>Set Up Event QR Check-In Form</h4>
+                            <div class="quest-meta">
+                                <span class="quest-date">June 26</span>
+                            </div>
+                        </div>
+                        <div class="quest-xp">15 XP</div>
+                        <button class="quest-expand"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <div class="guild-quest-card">
+                        <div class="quest-author">
+                            <i class="fas fa-user-circle"></i>
+                            <span>Seraphine</span>
+                        </div>
+                        <div class="quest-checkbox">
+                            <input type="checkbox" id="guild2">
+                            <label for="guild2"></label>
+                        </div>
+                        <div class="quest-content">
+                            <h4>Mock Interview with Teammate</h4>
+                            <div class="quest-meta">
+                                <span class="quest-date">June 27</span>
+                            </div>
+                        </div>
+                        <div class="quest-xp">100 XP</div>
+                        <button class="quest-expand"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <div class="guild-quest-card">
+                        <div class="quest-author">
+                            <i class="fas fa-user-circle"></i>
+                            <span>Karma</span>
+                        </div>
+                        <div class="quest-checkbox">
+                            <input type="checkbox" id="guild3">
+                            <label for="guild3"></label>
+                        </div>
+                        <div class="quest-content">
+                            <h4>Upload Documentation to Repository</h4>
+                            <div class="quest-meta">
+                                <span class="quest-date">June 29</span>
+                            </div>
+                        </div>
+                        <div class="quest-xp">50 XP</div>
+                        <button class="quest-expand"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quest Creation Modal -->
+    <div class="modal fade" id="questModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content quest-modal">
+                <div class="modal-body">
+                    <input type="text" placeholder="Quest name" class="quest-title-input">
+                    <textarea placeholder="Description" class="quest-description"></textarea>
+                    <div class="quest-options">
+                        <button class="btn btn-option"><i class="fas fa-calendar"></i> Date</button>
+                        <button class="btn btn-option"><i class="fas fa-flag"></i> Priority</button>
+                        <button class="btn btn-option"><i class="fas fa-tag"></i> Quest type</button>
+                        <button class="btn btn-option"><i class="fas fa-shield-alt"></i> Guild</button>
+                    </div>
+                    <div class="quest-actions">
+                        <button class="btn btn-cancel" data-bs-dismiss="modal">Cancel</button>
+                        <button class="btn btn-begin-quest">Begin quest <i class="fas fa-times"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
+    <script src="~/js/script.js"></script>
+}

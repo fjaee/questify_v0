@@ -1,8 +1,43 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+@{
+    ViewData["Title"] = "Questify";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="welcome-container">
+    <div class="animated-bg">
+        <img src="~/images/assets-shape1.png" alt="" class="shape-img shape-1">
+        <img src="~/images/assets-shape2.png" alt="" class="shape-img shape-2">
+        <img src="~/images/assets-shape3.png" alt="" class="shape-img shape-3">
+        <img src="~/images/assets-shape4.png" alt="" class="shape-img shape-4">
+        <img src="~/images/assets-shape5.png" alt="" class="shape-img shape-5">
+        <img src="~/images/assets-shape7.png" alt="" class="shape-img shape-7">
+        <img src="~/images/assets-shape6.png" alt="" class="shape-img shape-6">
+        <img src="~/images/assets-shape8.png" alt="" class="shape-img shape-8">
+        <img src="~/images/assets-shape9.png" alt="" class="shape-img shape-9">
+    </div>
+    <div class="welcome-content">
+        <div class="logo-container text-center">
+            <img src="~/images/assets-logo.png" alt="Questify Logo" class="logo-img mx-auto">
+        </div>
+        <div class="welcome-text">
+            <h1>Welcome, adventurer!</h1>
+            <p>Time to conquer your tasks — the  <span class="gamer-text">GAMER</span>  way.</p>
+        </div>
+        <div class="login-form">
+            <div class="form-group floating-label">
+                <input type="text" class="form-control" id="loginEmail" placeholder=" " required>
+                <label for="loginEmail">Username or email</label>
+            </div>
+            <div class="form-group floating-label">
+                <input type="password" class="form-control" id="loginPassword" placeholder=" " required>
+                <label for="loginPassword">Password</label>
+            </div>
+            <div class="button-group">
+                <button class="btn btn-signup" onclick="showSignup()">Sign up</button>
+                <button class="btn btn-login" onclick="login()">Log in</button>
+            </div>
+        </div>
+    </div>
 </div>
+@section Scripts {
+    <script src="~/js/script.js"></script>
+}
